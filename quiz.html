@@ -121,7 +121,7 @@
     function displayQuestion(num) {
       selected_option = 0;
       document.querySelectorAll('.option').forEach(el => el.classList.remove('selected'));
-      document.getElementById('question').innerText = 'Q' + (current_question + 1) + ': ' + questions[num].question + ' Score:' + score;
+      document.getElementById('question').innerText = 'Q' + (current_question + 1) + ': ' + questions[num].question;
       document.getElementById('option_1').innerText = questions[num].option_1;
       document.getElementById('option_2').innerText = questions[num].option_2;
       document.getElementById('option_3').innerText = questions[num].option_3;
