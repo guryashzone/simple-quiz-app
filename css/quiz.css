@@ -1,0 +1,142 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#header {
+  width: 100%;
+  background-color: #2196f3;
+  margin-top: 0;
+  color: white;
+  box-shadow: -1px 4px 20px 7px #e0dddd;
+}
+
+#title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  padding: 10px;
+}
+
+#username {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  border-top: 1px solid white;
+}
+
+#time {
+  margin: 10px 10px auto auto;
+  width: 125px;
+  text-align: center;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.container {
+  width: 100%;
+}
+
+.quiz-card {
+  width: 900px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgb(211, 216, 216);
+  /* background-color: rgb(231, 233, 134); */
+  padding: 30px;
+}
+
+#question {
+  padding: 10px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#options {
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.option {
+  padding: 20px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  border: 1px solid rgb(211, 216, 216);
+  margin-bottom: 20px;
+}
+
+.option:hover {
+  background-color: rgb(211, 216, 216);
+}
+
+.option.selected {
+  background-color: rgb(190, 252, 252);
+  /* color: white; */
+  font-weight: bold;
+}
+
+#next_button {
+  float: right;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  margin-top: -12px;
+  margin-right: 10px;
+  width: 100px;
+  height: 35px;
+}
+
+.success-card {
+  width: 700px;
+  margin-top: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgb(211, 216, 216);
+  /* background-color: rgb(231, 233, 134); */
+  padding: 30px;
+  text-align: center;
+}
+
+#success {
+  color: green;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+#score {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+#result {
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+#result.red {
+  color: red;
+}
+
+#result.green {
+  color: green;
+}
+
+#home_button {
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  margin-top: 30px;
+  width: 100px;
+  height: 35px;
+}

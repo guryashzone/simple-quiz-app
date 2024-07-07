@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz End</title>
+  <link rel="stylesheet" href="css/quiz.css">
+</head>
+<body>
+  <div id="header">
+    <div id="title">Quiz End</div>
+  </div>
+
+  <div class="success-card">
+    <div id="success"></div>
+    <div id="score">Score: 0</div>
+    <div id="result">Horrah!!!</div>
+    <a href="index.html">
+      <button id="home_button">Homepage</button>
+    </a>
+  </div>
+
+  </div>
+  </div>
+
+  <script type="text/javascript" src="questions/general_knowledge.js"></script>
+  <script>
+    var urlParams = new URLSearchParams(window.location.search);
+    var subject = urlParams.get('subject');
+    var username = urlParams.get('name');
+    var score = urlParams.get('score');
+
+    var message = score <= 5 ? 'Better Luck Next Time!' : 'Congratulations! You passed the quiz!';
+    var resultClass = score <= 5 ? 'red' : 'green';
+
+    document.getElementById('title').innerText = subject + '  Quiz';
+    document.getElementById('success').innerText = 'ThankYou, ' + username;
+    document.getElementById('score').innerText = 'Your Score: ' + score + '/10';
+    document.getElementById('result').innerText = message;
+    document.getElementById('result').classList.add(resultClass);
+
+  </script>
+</body>
+</html>
