@@ -54,13 +54,18 @@
     document.getElementById('title').innerText = subject + '  Quiz';
 
     // Time will change here
-    var minutes = 5; // Minutes
+    var minutes = 3; // Minutes
     var seconds = minutes * 60;
-    setInterval(() => {
+    var interval = setInterval(() => {
       seconds = seconds - 1;
 
       if (seconds === 0) {
+        clearInterval(interval);
         endQuiz();
+      }
+
+      if (seconds === 60) {
+        alert('1 Minute Left!');
       }
 
       var min = Math.floor(seconds / 60).toString().padStart(2, "0");
@@ -84,7 +89,6 @@
     } else {
       alert('Error: Quiz not supported!');
     }
-
 
     function startQuiz(list) {
       questions = list;
