@@ -1,7 +1,7 @@
-var general_knowledge_questions = [
+var general_knowledge_current_affairs_questions = [
   {
     "no": 1,
-    "question": "GK 1",
+    "question": "Current Affairs 1",
     "option_1": "Parrot",
     "option_2": "Carrot",
     "option_3": "Zebra",

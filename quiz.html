@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <title>Quiz Start</title>
   <link rel="stylesheet" href="css/quiz.css">
 </head>
@@ -32,7 +32,10 @@
   </div>
 
   <script type="text/javascript" src="questions/english.js"></script>
-  <script type="text/javascript" src="questions/general_knowledge.js"></script>
+  <script type="text/javascript" src="questions/general_knowledge_india.js"></script>
+  <script type="text/javascript" src="questions/general_knowledge_world.js"></script>
+  <script type="text/javascript" src="questions/general_knowledge_sports.js"></script>
+  <script type="text/javascript" src="questions/general_knowledge_current_affairs.js"></script>
   <script type="text/javascript" src="questions/geography.js"></script>
   <script type="text/javascript" src="questions/history.js"></script>
   <script type="text/javascript" src="questions/maths.js"></script>
@@ -42,94 +45,107 @@
     var urlParams = new URLSearchParams(window.location.search);
     var quiz = urlParams.get('quiz');
     var subject = urlParams.get('subject');
-    var username = prompt('Enter Full Name!');
-    username = username ? username : 'Guest User';
 
-    var current_question = 0;
-    var score = 0;
-    var selected_option = 0;
-    var questions = [];
-
-    document.getElementById('username').innerText = 'Welcome "' + username + '"';
-    document.getElementById('title').innerText = subject + '  Quiz';
-
-    // Time will change here
-    var minutes = 3; // Minutes
-    var seconds = minutes * 60;
-    var interval = setInterval(() => {
-      seconds = seconds - 1;
-
-      if (seconds === 0) {
-        clearInterval(interval);
-        endQuiz();
-      }
-
-      if (seconds === 60) {
-        alert('1 Minute Left!');
-      }
-
-      var min = Math.floor(seconds / 60).toString().padStart(2, "0");
-      var sec = Math.floor(seconds % 60).toString().padStart(2, "0");
-      var time = min + ':' + sec;
-      document.getElementById('clock').innerText = time;
-    }, 1000);
-
-    if (quiz === 'english') {
-      startQuiz(english_questions);
-    } else if (quiz === 'general_knowledge') {
-      startQuiz(general_knowledge_questions);
-    } else if (quiz === 'geography') {
-      startQuiz(geography_questions);
-    } else if (quiz === 'history') {
-      startQuiz(history_questions);
-    } else if (quiz === 'maths') {
-      startQuiz(maths_questions);
-    } else if (quiz === 'science') {
-      startQuiz(science_questions);
+    if (subject == null || quiz == null) {
+      window.location.href = 'index.html';
     } else {
-      alert('Error: Quiz not supported!');
-    }
 
-    function startQuiz(list) {
-      questions = list;
-      displayQuestion(0);
-    }
 
-    function selectOption(option) {
-      selected_option = option;
-      document.querySelectorAll('.option').forEach(el => el.classList.remove('selected'));
-      document.getElementById('option_' + option).classList.add('selected');
-    }
+      var username = prompt('Enter Your Name!');
+      username = username ? username : 'Guest User';
 
-    function nextQuestion() {
-      if ((current_question + 1) == questions.length) {
-        endQuiz();
+      var current_question = 0;
+      var score = 0;
+      var selected_option = 0;
+      var questions = [];
+
+      document.getElementById('username').innerText = 'Welcome "' + username + '"';
+      document.getElementById('title').innerText = subject + '  Quiz';
+
+      // Time will change here
+      var minutes = 3; // Minutes
+      var seconds = minutes * 60;
+      var interval = setInterval(() => {
+        seconds = seconds - 1;
+
+        if (seconds === 0) {
+          clearInterval(interval);
+          endQuiz();
+        }
+
+        if (seconds === 60) {
+          alert('1 Minute Left!');
+        }
+
+        var min = Math.floor(seconds / 60).toString().padStart(2, "0");
+        var sec = Math.floor(seconds % 60).toString().padStart(2, "0");
+        var time = min + ':' + sec;
+        document.getElementById('clock').innerText = time;
+      }, 1000);
+
+      if (quiz === 'english') {
+        startQuiz(english_questions);
+      } else if (quiz === 'general_knowledge_india') {
+        startQuiz(general_knowledge_india_questions);
+      } else if (quiz === 'general_knowledge_world') {
+        startQuiz(general_knowledge_world_questions);
+      } else if (quiz === 'general_knowledge_sports') {
+        startQuiz(general_knowledge_sports_questions);
+      } else if (quiz === 'general_knowledge_current_affairs') {
+        startQuiz(general_knowledge_current_affairs_questions);
+      } else if (quiz === 'geography') {
+        startQuiz(geography_questions);
+      } else if (quiz === 'history') {
+        startQuiz(history_questions);
+      } else if (quiz === 'maths') {
+        startQuiz(maths_questions);
+      } else if (quiz === 'science') {
+        startQuiz(science_questions);
+      } else {
+        alert('Error: Quiz not supported!');
       }
 
-      if (questions[current_question].correct_option == selected_option) {
-        score = score + 1;
+      function startQuiz(list) {
+        questions = list;
+        displayQuestion(0);
       }
 
-      current_question = current_question + 1;
-      displayQuestion(current_question);
-
-      if (current_question == questions.length - 1) {
-        document.getElementById('next_button').innerText = 'Submit';
+      function selectOption(option) {
+        selected_option = option;
+        document.querySelectorAll('.option').forEach(el => el.classList.remove('selected'));
+        document.getElementById('option_' + option).classList.add('selected');
       }
-    }
 
-    function displayQuestion(num) {
-      selected_option = 0;
-      document.querySelectorAll('.option').forEach(el => el.classList.remove('selected'));
-      document.getElementById('question').innerText = 'Q' + (current_question + 1) + ': ' + questions[num].question;
-      document.getElementById('option_1').innerText = questions[num].option_1;
-      document.getElementById('option_2').innerText = questions[num].option_2;
-      document.getElementById('option_3').innerText = questions[num].option_3;
-      document.getElementById('option_4').innerText = questions[num].option_4;
-    }
+      function nextQuestion() {
+        if ((current_question + 1) == questions.length) {
+          endQuiz();
+        }
 
-    function endQuiz() {
-      window.location.href = 'success.html?name=' + username + '&subject=' + subject + '&score=' + score;
+        if (questions[current_question].correct_option == selected_option) {
+          score = score + 1;
+        }
+
+        current_question = current_question + 1;
+        displayQuestion(current_question);
+
+        if (current_question == questions.length - 1) {
+          document.getElementById('next_button').innerText = 'Submit';
+        }
+      }
+
+      function displayQuestion(num) {
+        selected_option = 0;
+        document.querySelectorAll('.option').forEach(el => el.classList.remove('selected'));
+        document.getElementById('question').innerText = 'Q' + (current_question + 1) + ': ' + questions[num].question;
+        document.getElementById('option_1').innerText = questions[num].option_1;
+        document.getElementById('option_2').innerText = questions[num].option_2;
+        document.getElementById('option_3').innerText = questions[num].option_3;
+        document.getElementById('option_4').innerText = questions[num].option_4;
+      }
+
+      function endQuiz() {
+        window.location.href = 'success.html?name=' + username + '&subject=' + subject + '&score=' + score;
+      }
     }
   </script>
 </body>

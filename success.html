@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <title>Quiz End</title>
   <link rel="stylesheet" href="css/quiz.css">
   <link rel="stylesheet" href="css/confeti.css">
@@ -141,15 +141,18 @@
     var username = urlParams.get('name');
     var score = urlParams.get('score');
 
-    var message = score <= 5 ? 'Better Luck Next Time!' : 'Congratulations! You passed the quiz!';
-    var resultClass = score <= 5 ? 'red' : 'green';
+    if (subject == null || username == null) {
+      window.location.href = 'index.html';
+    } else {
+      var message = score <= 5 ? 'Better Luck Next Time!' : 'Congratulations! You passed the quiz!';
+      var resultClass = score <= 5 ? 'red' : 'green';
 
-    document.getElementById('title').innerText = subject + '  Quiz';
-    document.getElementById('success').innerText = 'ThankYou, ' + username;
-    document.getElementById('score').innerText = 'Your Score: ' + score + '/10';
-    document.getElementById('result').innerText = message;
-    document.getElementById('result').classList.add(resultClass);
-
+      document.getElementById('title').innerText = subject + '  Quiz';
+      document.getElementById('success').innerText = 'ThankYou, ' + username;
+      document.getElementById('score').innerText = 'Your Score: ' + score + '/10';
+      document.getElementById('result').innerText = message;
+      document.getElementById('result').classList.add(resultClass);
+    }
   </script>
 </body>
 </html>
