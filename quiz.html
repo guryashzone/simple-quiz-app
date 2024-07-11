@@ -37,9 +37,13 @@
   <script type="text/javascript" src="questions/general_knowledge_sports.js"></script>
   <script type="text/javascript" src="questions/general_knowledge_current_affairs.js"></script>
   <script type="text/javascript" src="questions/geography.js"></script>
-  <script type="text/javascript" src="questions/history.js"></script>
+  <script type="text/javascript" src="questions/history_ancient.js"></script>
+  <script type="text/javascript" src="questions/history_medieval.js"></script>
+  <script type="text/javascript" src="questions/history_modern.js"></script>
   <script type="text/javascript" src="questions/maths.js"></script>
-  <script type="text/javascript" src="questions/science.js"></script>
+  <script type="text/javascript" src="questions/science_physics.js"></script>
+  <script type="text/javascript" src="questions/science_chemistry.js"></script>
+  <script type="text/javascript" src="questions/science_biology.js"></script>
 
   <script>
     var urlParams = new URLSearchParams(window.location.search);
@@ -95,12 +99,20 @@
         startQuiz(general_knowledge_current_affairs_questions);
       } else if (quiz === 'geography') {
         startQuiz(geography_questions);
-      } else if (quiz === 'history') {
-        startQuiz(history_questions);
+      } else if (quiz === 'history_ancient') {
+        startQuiz(history_ancient_questions);
+      } else if (quiz === 'history_medieval') {
+        startQuiz(history_medieval_questions);
+      } else if (quiz === 'history_modern') {
+        startQuiz(history_modern_questions);
       } else if (quiz === 'maths') {
         startQuiz(maths_questions);
-      } else if (quiz === 'science') {
-        startQuiz(science_questions);
+      } else if (quiz === 'science_physics') {
+        startQuiz(science_physics_questions);
+      } else if (quiz === 'science_chemistry') {
+        startQuiz(science_chemistry_questions);
+      } else if (quiz === 'science_biology') {
+        startQuiz(science_biology_questions);
       } else {
         alert('Error: Quiz not supported!');
       }
