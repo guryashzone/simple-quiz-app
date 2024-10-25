@@ -2,13 +2,14 @@ html,
 body {
     margin: 0;
     background-color: pink;
+    height: 100vh;
 }
 
 .welcome {
     font-style: italic;
     text-align: center;
-    background-color: aqua;
-    /* color: white; */
+    background-color: #010033;
+    color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     font-size: 40px;
@@ -18,8 +19,8 @@ body {
 
 .welcome_topic {
     text-align: center;
-    background-color: aqua;
-    /* color: white; */
+    background-color: #010033;
+    color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     font-size: 40px;
